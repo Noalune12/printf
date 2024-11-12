@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 11:41:21 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/12 11:48:30 by lbuisson         ###   ########.fr       */
+/*   Created: 2024/11/12 11:46:55 by lbuisson          #+#    #+#             */
+/*   Updated: 2024/11/12 11:47:38 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_printf(const char *fmt, ...)
-{
-	va_list	args;
-	va_start(args, fmt);
-	va_end(args);
-}
+#include <stdarg.h>
+
+#endif
