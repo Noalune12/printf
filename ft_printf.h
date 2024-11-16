@@ -14,5 +14,10 @@
 # define FT_PRINTF_H
 
 #include <stdarg.h>
+# include <stdlib.h>
+# include "libft/libft.h"
+
+void	ft_print_char(char c, int *len);
+void	ft_print_str(char *str, int *len);
 
 #endif
