@@ -7,7 +7,7 @@ void	ft_print_nbr(int nb, int *len)
 	if (nb == -2147483648)
 	{
 		(*len) += 11;
-		return;
+		return ;
 	}
 	if (nb < 0)
 	{
@@ -49,5 +49,5 @@ void	ft_print_hexa(unsigned int hex, int *len, char x)
 	if (hex == 0)
 		ft_print_char('0', len);
 	else
-	ft_print_hex_x(hex, len, x);
+		ft_print_hex_x(hex, len, x);
 }

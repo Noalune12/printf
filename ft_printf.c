@@ -14,8 +14,8 @@
 
 static int	ft_check_specifier(char spec)
 {
-	if (spec =='c' || spec =='s' || spec == 'p'  || spec =='d' || spec =='i'
-		 || spec =='u' || spec =='x' || spec =='X' || spec =='%')
+	if (spec == 'c' || spec == 's' || spec == 'p' || spec == 'd' || spec == 'i'
+		|| spec == 'u' || spec == 'x' || spec == 'X' || spec == '%')
 		return (1);
 	return (0);
 }
@@ -28,11 +28,11 @@ static void	ft_print_spec(char spec, va_list *args, int *len)
 		ft_print_str(va_arg(*args, char *), len);
 	if (spec == 'p')
 		ft_print_ptr(va_arg(*args, void *), len);
-	if (spec == 'd' || spec== 'i')
+	if (spec == 'd' || spec == 'i')
 		ft_print_nbr(va_arg(*args, int), len);
 	if (spec == 'u')
 		ft_print_unbr(va_arg(*args, unsigned int), len);
-	if (spec == 'x' || spec== 'X')
+	if (spec == 'x' || spec == 'X')
 		ft_print_hexa(va_arg(*args, unsigned int), len, spec);
 	if (spec == '%')
 		ft_print_char('%', len);
@@ -64,7 +64,7 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (len);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -105,7 +105,7 @@ int	main(void)
 
 	//%p
 	printf("%%p\n\n");
-	char	*str1;
+	char	str1[] = "char";
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("%p", str1));
 	printf("\n\nPRINTF\n");
@@ -194,3 +194,4 @@ int	main(void)
 	// printf("\nreturn = %d", printf("print this%e", "hello"));
 
 }
+*/

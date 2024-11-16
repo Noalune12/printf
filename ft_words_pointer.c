@@ -20,9 +20,9 @@ void	ft_print_str(char *str, int *len)
 	}
 }
 
-static void	ft_printhex(unsigned int ptr, int *len)
+static void	ft_printhex(size_t ptr, int *len)
 {
-	const char *hex_digits;
+	const char	*hex_digits;
 
 	hex_digits = "0123456789abcdef";
 	if (ptr >= 16)
@@ -32,7 +32,7 @@ static void	ft_printhex(unsigned int ptr, int *len)
 
 void	ft_print_ptr(void *ptr, int *len)
 {
-	unsigned long	addr;
+	size_t	addr;
 
 	if (!ptr)
 	{
@@ -41,7 +41,7 @@ void	ft_print_ptr(void *ptr, int *len)
 	}
 	else
 	{
-		addr = (unsigned long)ptr;
+		addr = (size_t)ptr;
 		ft_putstr_fd("0x", 1);
 		(*len) += 2;
 		ft_printhex(addr, len);
