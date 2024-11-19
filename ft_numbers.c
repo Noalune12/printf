@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_numbers.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/19 08:33:17 by lbuisson          #+#    #+#             */
+/*   Updated: 2024/11/19 08:34:48 by lbuisson         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include "ft_printf.h"
 
@@ -37,7 +49,7 @@ static void	ft_print_hex_x(unsigned int hex, int *len, char x)
 
 	if (x == 'x')
 		hex_digits = "0123456789abcdef";
-	else if (x == 'X')
+	else
 		hex_digits = "0123456789ABCDEF";
 	if (hex >= 16)
 		ft_print_hex_x(hex / 16, len, x);

@@ -53,7 +53,10 @@ int	ft_printf(const char *fmt, ...)
 			ft_print_spec(*fmt, &args, &len);
 		}
 		else if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 0)
-			return (len);
+		{
+			va_end(args);
+			return (-1);
+		}
 		else
 		{
 			ft_putchar_fd(*fmt, 1);
@@ -64,7 +67,7 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (len);
 }
-/*
+
 #include <stdio.h>
 
 int	main(void)
@@ -90,7 +93,7 @@ int	main(void)
 	printf("\nreturn = %d", printf("%c%c%c%c", 'c', 'h', 'a', 'r'));
 
 	//%s
-	printf("%%s\n\n");
+	printf("\n\n%%s\n\n");
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("%s", "coucou"));
 	printf("\n\nPRINTF\n");
@@ -116,6 +119,7 @@ int	main(void)
 	printf("\nreturn = %d", ft_printf("%p", str2));
 	printf("\n\nPRINTF\n");
 	printf("\nreturn = %d", printf("%p", str2));
+	printf("\n\n");
 
 	//%d
 	printf("%%d\n\n");
@@ -194,4 +198,4 @@ int	main(void)
 	// printf("\nreturn = %d", printf("print this%e", "hello"));
 
 }
-*/
+
