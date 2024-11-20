@@ -6,7 +6,7 @@
 #    By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:33:31 by lbuisson          #+#    #+#              #
-#    Updated: 2024/11/20 11:30:20 by lbuisson         ###   ########.fr        #
+#    Updated: 2024/11/20 13:39:22 by lbuisson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,13 @@ LIBFT_FUNCTIONS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_
 	ft_striteri.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_substr.c \
 	ft_strtrim.c ft_tolower.c ft_toupper.c
 
-LIBFT_C = $(addprefix $(LIBFT_DIR)/, $(LIBFT_FUNCTIONS))
+LIBFT_FILES = $(addprefix $(LIBFT_DIR)/, $(LIBFT_FUNCTIONS)) $(LIBFT_DIR)/libft.h $(LIBFT_DIR)/Makefile
 
-all : $(LIBFT_A) $(NAME)
+all : $(NAME)
 
-$(LIBFT_A): $(LIBFT_C)
+$(NAME) : $(OBJS) $(LIBFT_FILES)
 	make -C $(LIBFT_DIR)
 	cp $(LIBFT_A) $(NAME)
-
-$(NAME) : $(OBJS) $(LIBFT_A)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c ft_printf.h Makefile
