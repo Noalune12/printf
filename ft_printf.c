@@ -14,8 +14,7 @@
 
 static int	ft_check_specifier(char spec)
 {
-	if (spec == 'c' || spec == 's' || spec == 'p' || spec == 'd' || spec == 'i'
-		|| spec == 'u' || spec == 'x' || spec == 'X' || spec == '%')
+	if (ft_strchr("cspdiuxX", spec))
 		return (1);
 	return (0);
 }
@@ -45,6 +44,8 @@ int	ft_printf(const char *fmt, ...)
 	va_list	args;
 	int		len;
 
+	if (!fmt)
+		return (-1);
 	va_start(args, fmt);
 	len = 0;
 	while (*fmt)

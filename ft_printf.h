@@ -24,6 +24,6 @@ void	ft_print_ptr(void *ptr, int *len, char *hex_digits);
 void	ft_print_nbr(int nb, int *len);
 void	ft_print_unbr(unsigned int nb, int *len);
 void	ft_print_hexa(unsigned int hex, int *len, char *hex_digits);
-void	ft_printhex(size_t nbr, int *len, char *hex_digits);
+void	ft_puthex(size_t nbr, int *len, char *hex_digits);
 
 #endif
