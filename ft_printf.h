@@ -20,9 +20,10 @@
 int		ft_printf(const char *fmt, ...);
 void	ft_print_char(char c, int *len);
 void	ft_print_str(char *str, int *len);
-void	ft_print_ptr(void *ptr, int *len);
+void	ft_print_ptr(void *ptr, int *len, char *hex_digits);
 void	ft_print_nbr(int nb, int *len);
 void	ft_print_unbr(unsigned int nb, int *len);
-void	ft_print_hexa(unsigned int hex, int *len, char x);
+void	ft_print_hexa(unsigned int hex, int *len, char *hex_digits);
+void	ft_printhex(size_t nbr, int *len, char *hex_digits);
 
 #endif

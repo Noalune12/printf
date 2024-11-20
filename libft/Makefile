@@ -6,13 +6,13 @@
 #    By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 08:31:01 by lbuisson          #+#    #+#              #
-#    Updated: 2024/11/13 12:39:46 by lbuisson         ###   ########.fr        #
+#    Updated: 2024/11/20 08:10:13 by lbuisson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -c
+CFLAGS = -Wall -Werror -Wextra
 
 NAME = libft.a
 

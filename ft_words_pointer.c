@@ -6,7 +6,7 @@
 /*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 08:33:28 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/19 08:33:29 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:27:52 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,14 @@ void	ft_print_str(char *str, int *len)
 	}
 }
 
-static void	ft_printhex(size_t ptr, int *len)
+void	ft_printhex(size_t nbr, int *len, char *hex_digits)
 {
-	const char	*hex_digits;
-
-	hex_digits = "0123456789abcdef";
-	if (ptr >= 16)
-		ft_printhex(ptr / 16, len);
-	ft_print_char(hex_digits[ptr % 16], len);
+	if (nbr >= 16)
+		ft_printhex(nbr / 16, len, hex_digits);
+	ft_print_char(hex_digits[nbr % 16], len);
 }
 
-void	ft_print_ptr(void *ptr, int *len)
+void	ft_print_ptr(void *ptr, int *len, char *hex_digits)
 {
 	size_t	addr;
 
@@ -56,6 +53,6 @@ void	ft_print_ptr(void *ptr, int *len)
 		addr = (size_t)ptr;
 		ft_putstr_fd("0x", 1);
 		(*len) += 2;
-		ft_printhex(addr, len);
+		ft_printhex(addr, len, hex_digits);
 	}
 }
