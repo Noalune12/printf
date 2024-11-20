@@ -14,7 +14,7 @@
 
 static int	ft_check_specifier(char spec)
 {
-	if (ft_strchr("cspdiuxX", spec))
+	if (ft_strchr("cspdiuxX%", spec))
 		return (1);
 	return (0);
 }
@@ -61,10 +61,7 @@ int	ft_printf(const char *fmt, ...)
 			return (-1);
 		}
 		else
-		{
-			ft_putchar_fd(*fmt, 1);
-			len++;
-		}
+			ft_print_char(*fmt, &len);
 		fmt++;
 	}
 	va_end(args);
