@@ -44,8 +44,35 @@ static int	ft_print_spec(char spec, va_list *args, int *len)
 				len, "0123456789ABCDEF");
 	else if (spec == '%')
 		res = ft_print_char('%', len);
+	//else print ?? check with \n . = h
 	if (res == -1)
 		return (-1);
+	return (1);
+}
+
+static int	ft_parse_printf(const char *fmt, va_list *args, int *len)
+{
+	int	res;
+
+	while (*fmt)
+	{
+		if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 1)
+		{
+			fmt++;
+			res = ft_print_spec(*fmt, args, len);
+			if (res == -1)
+				return (-1);
+		}
+		else if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 0)
+			return (-1);
+		else
+		{
+			res = ft_print_char(*fmt, len);
+			if (res == -1)
+				return (-1);
+		}
+		fmt++;
+	}
 	return (1);
 }
 
@@ -59,27 +86,11 @@ int	ft_printf(const char *fmt, ...)
 		return (-1);
 	va_start(args, fmt);
 	len = 0;
-	while (*fmt)
+	res = ft_parse_printf(fmt, &args, &len);
+	if (res == -1)
 	{
-		if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 1)
-		{
-			fmt++;
-			res = ft_print_spec(*fmt, &args, &len);
-			if (res == -1)
-				return (-1);
-		}
-		else if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 0)
-		{
-			va_end(args);
-			return (-1);
-		}
-		else
-		{
-			res = ft_print_char(*fmt, &len);
-			if (res == -1)
-				return (-1);
-		}
-		fmt++;
+		va_end(args);
+		return (-1);
 	}
 	va_end(args);
 	return (len);
