@@ -59,10 +59,7 @@ static int	ft_check_percentage(const char *fmt, int *len, int *pct)
 			return (-1);
 	}
 	else if ((*(fmt + 2) || ft_strchr((fmt + 2), '%')))
-	{
 		ft_print_char('%', len);
-		fmt++;
-	}
 	else if ((*pct) != 0 && ((*(fmt + 1)) && !(*(fmt + 2))))
 		ft_print_char('%', len);
 	else if ((*pct) == 0 && ((!(*(fmt + 1))
@@ -93,6 +90,7 @@ static int	ft_parse_printf(const char *fmt, va_list *args, int *len)
 			{
 				if (ft_check_percentage(fmt, len, &pct) == -1)
 					return (-1);
+				fmt++;
 				pct = 1;
 			}
 		}
