@@ -6,22 +6,26 @@
 /*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:48:53 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/13 08:37:58 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/21 09:54:46 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
+	int		res;
 
 	if (!s)
-		return ;
+		return (-1);
 	i = 0;
 	while (s[i])
 	{
-		ft_putchar_fd(s[i], fd);
+		res = ft_putchar_fd(s[i], fd);
+		if (res == -1)
+			return (-1);
 		i++;
 	}
+	return (1);
 }

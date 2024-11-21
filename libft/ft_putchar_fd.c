@@ -6,13 +6,18 @@
 /*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:48:04 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/13 08:25:19 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/21 09:36:51 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	ssize_t	res;
+
+	res = write(fd, &c, 1);
+	if (res == -1)
+		return (-1);
+	return (1);
 }
