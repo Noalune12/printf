@@ -44,8 +44,29 @@ static int	ft_print_spec(char spec, va_list *args, int *len)
 				len, "0123456789ABCDEF");
 	else if (spec == '%')
 		res = ft_print_char('%', len);
-	//else print ?? check with \n . = h
 	if (res == -1)
+		return (-1);
+	return (1);
+}
+
+static int	ft_check_percentage(const char *fmt, int *len, int *pct)
+{
+	if (ft_strchr(" -", *(fmt + 1)) && *(fmt + 1))
+	{
+		ft_print_char('%', len);
+		ft_print_char(*(fmt + 1), len);
+		if ((*pct) == 0)
+			return (-1);
+	}
+	else if ((*(fmt + 2) || ft_strchr((fmt + 2), '%')))
+	{
+		ft_print_char('%', len);
+		fmt++;
+	}
+	else if ((*pct) != 0 && ((*(fmt + 1)) && !(*(fmt + 2))))
+		ft_print_char('%', len);
+	else if ((*pct) == 0 && ((!(*(fmt + 1))
+				|| ((*(fmt + 1)) && !(*(fmt + 2))))))
 		return (-1);
 	return (1);
 }
@@ -53,18 +74,28 @@ static int	ft_print_spec(char spec, va_list *args, int *len)
 static int	ft_parse_printf(const char *fmt, va_list *args, int *len)
 {
 	int	res;
+	int	pct;
 
+	pct = 0;
 	while (*fmt)
 	{
-		if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 1)
+		if (*fmt == '%')
 		{
-			fmt++;
-			res = ft_print_spec(*fmt, args, len);
-			if (res == -1)
-				return (-1);
+			if (ft_check_specifier(*(fmt + 1)) == 1)
+			{
+				fmt++;
+				res = ft_print_spec(*fmt, args, len);
+				if (res == -1)
+					return (-1);
+				pct = 1;
+			}
+			else if (ft_check_specifier(*(fmt + 1)) == 0)
+			{
+				if (ft_check_percentage(fmt, len, &pct) == -1)
+					return (-1);
+				pct = 1;
+			}
 		}
-		else if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 0)
-			return (-1);
 		else
 		{
 			res = ft_print_char(*fmt, len);
@@ -95,51 +126,3 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (len);
 }
-
-// int	ft_printf(const char *fmt, ...)
-// {
-// 	va_list	args;
-// 	int		len;
-// 	int		res;
-
-// 	if (!fmt)
-// 		return (-1);
-// 	va_start(args, fmt);
-// 	len = 0;
-// 	while (*fmt)
-// 	{
-// 		if (*fmt == '%' && ft_check_specifier(*(fmt + 1)) == 1)
-// 		{
-// 			fmt++;
-// 			res = ft_print_spec(*fmt, &args, &len);
-// 			if (res == -1)
-// 				return (-1);
-// 		}
-// 		else if (*fmt == '%' && !(fmt + 1))
-// 		{
-// 			va_end(args);
-// 			return (-1);
-// 		}
-// 		else if (*fmt == '%' && (ft_check_specifier(*(fmt + 1)) == 0))
-// 		{
-// 			if (!*(fmt + 2))
-// 			{
-// 				va_end(args);
-// 				return (-1);
-// 			}
-// 			res = ft_print_char(*fmt, &len);
-// 			if (res == -1)
-// 					return (-1);
-// 			fmt++;
-// 		}
-// 		else
-// 		{
-// 			res = ft_print_char(*fmt, &len);
-// 			if (res == -1)
-// 				return (-1);
-// 		}
-// 		fmt++;
-// 	}
-// 	va_end(args);
-// 	return (len);
-// }
