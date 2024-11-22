@@ -3,21 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbuisson <lbuisson@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:48:04 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/21 09:36:51 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:35:36 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	ssize_t	res;
-
-	res = write(fd, &c, 1);
-	if (res == -1)
-		return (-1);
-	return (1);
+	write(fd, &c, 1);
 }

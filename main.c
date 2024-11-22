@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbuisson <lbuisson@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 08:00:43 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/21 15:49:18 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:27:56 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,9 +172,9 @@ int	main(void)
 	printf("\nreturn = %d", printf("%d %h %h %-"));
 	printf("\n\n");
 	printf("FT_PRINTF\n");
-	printf("\nreturn = %d", ft_printf("%, jj"));
+	printf("\nreturn = %d", ft_printf("%( jj %,"));
 	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%, jj"));
+	printf("\nreturn = %d", printf("%*%+%`%A jj %,"));
 	printf("\n\n");
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("%%%"));
