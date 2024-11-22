@@ -6,7 +6,7 @@
 /*   By: lbuisson <lbuisson@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 08:00:43 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/22 11:27:56 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:05:03 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,48 +138,15 @@ int	main(void)
 	printf("WRONG %%...\n\n");
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("hello %h hello"));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("hello %h hello"));
 	printf("\n\n");
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("%h"));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%h"));
-	printf("\n\n");
-	printf("FT_PRINTF\n");
-	printf("\nreturn = %d", ft_printf("hello %h hello %h hello %h"));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("hello %h hello %h hello %h"));
 	printf("\n\n");
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("% % % "));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("% % % "));
-	printf("\n\n");
-	printf("FT_PRINTF\n");
-	printf("\nreturn = %d", ft_printf("%h %h %h "));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%h %h %h "));
-	printf("\n\n");
-	printf("FT_PRINTF\n");
-	printf("\nreturn = %d", ft_printf("%- %- %- "));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%- -%- %- "));
-	printf("\n\n");
-	printf("FT_PRINTF\n");
-	printf("\nreturn = %d", ft_printf("%d %h %h %-"));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%d %h %h %-"));
-	printf("\n\n");
-	printf("FT_PRINTF\n");
-	printf("\nreturn = %d", ft_printf("%( jj %,"));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%*%+%`%A jj %,"));
 	printf("\n\n");
 	printf("FT_PRINTF\n");
 	printf("\nreturn = %d", ft_printf("%%%"));
-	printf("\n\nPRINTF\n");
-	printf("\nreturn = %d", printf("%%%"));
 	printf("\n\n");
 	// printf("FT_PRINTF\n");
 	// printf("\nreturn = %d", ft_printf(0));

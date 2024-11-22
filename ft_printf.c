@@ -34,44 +34,15 @@ static void	ft_print_spec(char spec, va_list *args, int *len)
 	else if (spec == 'u')
 		ft_print_unbr(va_arg(*args, unsigned int), len);
 	else if (spec == 'x')
-		ft_print_hexa(va_arg(*args, unsigned int),
-				len, "0123456789abcdef");
+		ft_print_hexa(va_arg(*args, unsigned int), len, "0123456789abcdef");
 	else if (spec == 'X')
-		ft_print_hexa(va_arg(*args, unsigned int),
-				len, "0123456789ABCDEF");
+		ft_print_hexa(va_arg(*args, unsigned int), len, "0123456789ABCDEF");
 	else if (spec == '%')
 		ft_print_char('%', len);
 }
 
-static int	ft_check_percentage(const char *fmt, int *len, int *pct)
-{
-	if (ft_strchr(" -", *(fmt + 1)) && *(fmt + 1))
-	{
-		ft_print_char('%', len);
-		ft_print_char(*(fmt + 1), len);
-		if ((*pct) == 0)
-			return (-1);
-	}
-	else if (ft_strchr(",!#$&'()", *(fmt + 1)) && *(fmt + 1))
-	{
-		ft_print_char('%', len);
-		ft_print_char(*(fmt + 1), len);
-	}
-	else if ((*(fmt + 2) || ft_strchr((fmt + 2), '%')))
-		ft_print_char('%', len);
-	else if ((*pct) != 0 && ((*(fmt + 1)) && !(*(fmt + 2))))
-		ft_print_char('%', len);
-	else if ((*pct) == 0 && ((!(*(fmt + 1))
-				|| ((*(fmt + 1)) && !(*(fmt + 2))))))
-		return (-1);
-	return (1);
-}
-
 static int	ft_parse_printf(const char *fmt, va_list *args, int *len)
 {
-	int	pct;
-
-	pct = 0;
 	while (*fmt)
 	{
 		if (*fmt == '%')
@@ -80,16 +51,9 @@ static int	ft_parse_printf(const char *fmt, va_list *args, int *len)
 			{
 				fmt++;
 				ft_print_spec(*fmt, args, len);
-				pct = 1;
 			}
-			else if (ft_check_specifier(*(fmt + 1)) == 0)
-			{
-				if (ft_check_percentage(fmt, len, &pct) == -1)
-					return (-1);
-				fmt++;
-				pct = 1;
-			}
-			else if (ft_check_specifier(*(fmt + 1)) == -1) // '%' isolé
+			else if (ft_check_specifier(*(fmt + 1)) == -1
+				|| ft_check_specifier(*(fmt + 1)) == 0)
 				return (-1);
 		}
 		else
@@ -108,7 +72,11 @@ int	ft_printf(const char *fmt, ...)
 		return (-1);
 	va_start(args, fmt);
 	len = 0;
-	ft_parse_printf(fmt, &args, &len);
+	if (ft_parse_printf(fmt, &args, &len) == -1)
+	{
+		va_eng(args);
+		return (-1);
+	}
 	va_end(args);
 	return (len);
 }

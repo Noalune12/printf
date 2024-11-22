@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-int	ft_printf(const char *fmt, ...);
+int		ft_printf(const char *fmt, ...);
 void	ft_print_char(char c, int *len);
 void	ft_print_str(char *str, int *len);
 void	ft_print_ptr(void *ptr, int *len, char *hex_digits);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+         #
+#    By: lbuisson <lbuisson@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 08:33:31 by lbuisson          #+#    #+#              #
-#    Updated: 2024/11/20 13:39:22 by lbuisson         ###   ########.fr        #
+#    Updated: 2024/11/22 12:07:08 by lbuisson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
