@@ -74,7 +74,7 @@ int	ft_printf(const char *fmt, ...)
 	len = 0;
 	if (ft_parse_printf(fmt, &args, &len) == -1)
 	{
-		va_eng(args);
+		va_end(args);
 		return (-1);
 	}
 	va_end(args);
