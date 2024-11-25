@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_numbers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbuisson <lbuisson@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lbuisson <lbuisson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 08:33:17 by lbuisson          #+#    #+#             */
-/*   Updated: 2024/11/22 11:37:11 by lbuisson         ###   ########.fr       */
+/*   Updated: 2024/11/25 07:36:16 by lbuisson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 void	ft_print_nbr(int nb, int *len)
